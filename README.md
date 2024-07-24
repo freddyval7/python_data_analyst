@@ -79,7 +79,7 @@ plt.show()
 ```
 
 ### Results
-[Trending Top Skills for Data Analysts in the US](3_Project/images/top_skills_data_analyst.png)
+![Trending Top Skills for Data Analysts in the US](3_Project/images/top_skills_data_analyst.png)
 *Bar Graph visualizing the trending top skills for data analysts in the US in 2023.*
 
 ### Insights
@@ -91,3 +91,42 @@ plt.show()
 - Both Tableau and Python exhibit fluctuations in demand throughout the year. While Python has seen a slight upward trend towards the end of the year, Tableau's demand has shown more variability.
 
 - SAS, historically a staple in data analysis, has shown a declining trend in demand throughout the year. This suggests a potential shift towards more modern tools and programming languages.
+
+## 3. How well do jobs and skills pay for Data Analysts?
+
+### Salary Analysis 
+
+#### Visualize Data
+
+```python
+sns.boxplot(
+    data=df_US_top6,
+    x="salary_year_avg",
+    y="job_title_short",
+    order=job_order,
+    hue="job_title_short",
+    dodge=False,
+    palette="tab10",
+)
+sns.set_theme(style="ticks")
+
+plt.title("Top 6 Jobs in the US by Average Salary")
+plt.xlabel("Yearly Salary (USD)")
+plt.ylabel("")
+plt.xlim(0, 600_000)
+ticks_X = plt.FuncFormatter(lambda y, _: f"${int(y/1000)}K")
+plt.gca().xaxis.set_major_formatter(ticks_X)
+plt.show()
+```
+
+#### Results
+
+![Salary Distributions of Data Jobs in the US](3_Project/images/salary_boxplot.png)
+
+### Insights
+
+- There's a considerable salary range across all job titles, indicating varying compensation levels within each role.
+
+- As expected, Senior Data Scientist and Senior Data Engineer roles command the highest average salaries, with a wider salary range compared to their junior counterparts.
+
+- There's some overlap in salary ranges between different job titles, suggesting potential salary variations based on factors other than job title, such as experience, location, company size, and specific skill set.
