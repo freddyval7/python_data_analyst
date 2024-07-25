@@ -130,3 +130,78 @@ plt.show()
 - As expected, Senior Data Scientist and Senior Data Engineer roles command the highest average salaries, with a wider salary range compared to their junior counterparts.
 
 - There's some overlap in salary ranges between different job titles, suggesting potential salary variations based on factors other than job title, such as experience, location, company size, and specific skill set.
+
+### Highest Paid and Most Demanded Skills for Data Analyst
+
+#### Visualize Data
+
+```python
+sns.barplot(
+    data=df_DA_top_pay,
+    x="median",
+    y=df_DA_top_pay.index,
+    ax=ax[0],
+    hue="median",
+    palette="dark:b_r",
+    legend=False,
+)
+
+sns.barplot(
+    data=df_DA_skills,
+    x="median",
+    y=df_DA_top_pay.index,
+    ax=ax[1],
+    hue="median",
+    palette="light:b",
+    legend=False,
+)
+
+plt.show()
+```
+
+#### Results
+![The Highest Paid and Most In-Demand Skills for Data Analysts in the US](3_Project/images/top_skills_by_median_and_demand.png)
+*Two separate bar graphs visualizing the highest paid skills and most in-demand skills for data analysts in the US.*
+
+#### Insights
+
+- Skills like dplyr, bitbucket, gitlab, and solidity appear to command higher median salaries among Data Analysts. This suggests that proficiency in these tools or platforms can lead to higher compensation.
+
+- There is a significant variation in median salaries among the top 10 skills. This indicates that the choice of skills can significantly impact earning potential.
+
+- Python and Tableau are the most in-demand skills for Data Analysts, as evidenced by their position at the top of the chart.
+
+- To maximize earning potential, Data Analysts should consider acquiring skills in tools like dplyr, bitbucket, and gitlab, while also mastering the highly demanded skills of Python and Tableau.
+
+## 4. What is the most optimal skill to learn for Data Analysts?
+
+### Visualize Data
+
+```python
+sns.scatterplot(
+    data=df_plot,
+    x="skill_perc",
+    y="median_salary",
+    hue="technology",
+)
+
+plt.tight_layout()
+plt.show()
+```
+
+#### Results
+
+![Optimal Skills Plot](3_Project/images/optimal_skills.png)
+*A scatter plot visualizing the most optimal skills (high paying and high demand) for data analysts in the US.*
+
+#### Insights
+
+- Skills like Python, SQL, and Tableau are positioned in the upper right quadrant, indicating high demand and high median salaries. These are considered the most valuable skills for Data Analysts.
+
+- Skills like Excel, PowerPoint, and Word, while in high demand, are associated with lower median salaries. This suggests that while these skills are essential, they might not command as high a premium as technical skills like Python and SQL.
+
+- Skills like Oracle and dplyr, though not as widely demanded, are associated with higher median salaries. This could indicate specialized roles or niche markets where these skills are highly valued.
+
+- Skills like SAS and SAS are positioned in the lower left quadrant, suggesting lower demand and lower median salaries.
+
+- It highlights the importance of technical skills like Python, SQL, and Tableau for career advancement and higher earnings. However, it also suggests that a combination of technical and soft skills, including proficiency in tools like Excel and PowerPoint, is essential for overall job success.
